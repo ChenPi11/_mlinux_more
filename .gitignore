@@ -1,11 +1,11 @@
 .lock
 .build
-auto
-binary
+/auto
+/binary
 local
-chroot
+/chroot
 chroot.tmp
-cache
+/cache
 chroot.packages.install
 binary.modified_timestamps
 chroot.files
