@@ -1,0 +1,15 @@
+build-essential
+autoconf
+automake
+cmake
+git
+ninja-build
+subversion
+libelf-dev
+libncurses5-dev
+libreadline-dev
+libssl-dev
+libtool
+libxml2-dev
+libyaml-dev
+pkg-config
