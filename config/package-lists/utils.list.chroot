@@ -5,6 +5,7 @@ bison
 bison
 curl
 curl
+dpkg-dev
 fakeroot
 flex
 flex
