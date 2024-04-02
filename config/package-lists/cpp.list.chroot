@@ -2,6 +2,7 @@ build-essential
 autoconf
 automake
 cmake
+clang
 git
 ninja-build
 subversion
@@ -13,3 +14,5 @@ libtool
 libxml2-dev
 libyaml-dev
 pkg-config
+meson
+libntirpc-dev

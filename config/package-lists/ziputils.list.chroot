@@ -6,3 +6,5 @@ unrar
 unzip
 xz-utils
 zip
+zlib1g-dev
+zziplib-bin

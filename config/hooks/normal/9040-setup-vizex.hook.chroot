@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -e
+
+pip install vizex --break-system-packages
+pip install PyInstaller --break-system-packages
