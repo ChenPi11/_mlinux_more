@@ -1,8 +1,9 @@
-#  emerald.script - boot splash using script plugin
+#  mlinux.script - boot splash for MLinux More
 #
 #  Copyright (C) 2009 Canonical Ltd.
 #  Copyright © 2010-2021 Aurélien Couderc <coucouf@debian.org>
 #  Copyright © 2014-2022 Juliette Taka <juliette.belin@logilab.fr>
+#  Copyright (C) 2024 ChenPi11 <wushengwuxi-msctinoulk@outlook.com>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -33,10 +34,10 @@ NB_ANIM_STEPS = 60;
 NB_REFRESHS_BETWEEN_ANIMS = 2;
 
 # Initial position of the center of the logo in % of background
-LOGO_CENTER_PCT.x = 0.5; # Debian swirl image position in % of screen height & width
+LOGO_CENTER_PCT.x = 0.5;
 LOGO_CENTER_PCT.y = 0.55;
-LOGO_SIZE_PCT = 0.48; # Debian + emerald image size in % of smallest screen dimension
-LOGO_GLOW_SIZE_PCT = 0.8; # Debian swirl image size in % of smallest screen dimension
+LOGO_SIZE_PCT = 0.48; # Image size in % of smallest screen dimension
+LOGO_GLOW_SIZE_PCT = 0.8;
 
 #------------------------------- Globals -------------------------------------------
 # are we currently prompting for a password?
@@ -146,14 +147,14 @@ logo_center.x = window_max.width * LOGO_CENTER_PCT.x;
 logo_center.y = window_max.height * LOGO_CENTER_PCT.y;
 #Debug("Logo center at [" + logo_center.x + ";" + logo_center.y + "], size=" + logo_size + "px");
 
-logo_pos.x = logo_center.x - 0.48 * logo_size; # Center the Debian 12 text, not the image
+logo_pos.x = logo_center.x - 0.48 * logo_size;
 logo_pos.y = logo_center.y - 0.8 * logo_size;
 
 logo_glow_size = small_dimension * LOGO_GLOW_SIZE_PCT;
 
 
-#---------------------------- Logo + Emerald ---------------------------------
-logo = Image("logo+emerald.png");
+#---------------------------- Logo ---------------------------------
+logo = Image("logo.png");
 logo_scale_factor = logo_size / logo.GetWidth();
 logo = logo.Scale(logo.GetWidth()  * logo_scale_factor,
                   logo.GetHeight() * logo_scale_factor);
@@ -233,9 +234,8 @@ fun StringToInteger (str) {
 }
 
 #-----------------------------------------------------------------------------
-# Top background colour
+# SetBackgroundTopColor: e.g.
 # #05475c --> 0.0196, 0.2784, 0.3608
-# Bottom background colour
 # #05475c --> 0.0196, 0.2784, 0.3608
 # a = R / 255, b = G / 255, c = B / 255
 

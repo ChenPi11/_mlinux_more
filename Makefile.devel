@@ -1,0 +1,27 @@
+# -*- makefile -*-
+# This is the developer's makefile, not the user's makefile.
+# Don't use it unless you know exactly what you do!
+
+ACLOCAL := aclocal
+AUTOCONF := autoconf
+MKDIR := mkdir
+RM := rm -f
+
+VERSION ?= 0.0.0
+
+ifneq (,)
+This makefile requires GNU Make.
+endif
+
+.PHONY : all check-configures
+
+all : configure
+
+aclocal.m4 : configure.ac
+	$(ACLOCAL) --output=$@ && touch $@ && $(RM) -r -f autom4te.cache
+
+configure : configure.ac aclocal.m4
+	$(AUTOCONF) && $(RM) -r -f autom4te.cache
+
+check-configures : configure
+	set -e; for f in $^; do bash -x -n $$f; done

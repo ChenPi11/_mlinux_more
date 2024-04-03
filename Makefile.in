@@ -1,9 +1,13 @@
 # Makefile for MLinux More LiveCD
 
-LIVE_BUILD = lb
-SUDO = sudo
+LIVE_BUILD = @LIVE_BUILD@
+SUDO = @SUDO@
 
 DEBIAN_CHECKER = check-debian.sh
+
+ifneq (,)
+This makefile requires GNU Make.
+endif
 
 all : check-debian build
 

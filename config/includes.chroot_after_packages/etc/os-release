@@ -1,0 +1,7 @@
+PRETTY_NAME="MLinux More GNU/Linux trixie/sid"
+NAME="MLinux More GNU/Linux"
+VERSION_CODENAME=trixie
+ID=debian
+HOME_URL="https://github.com/mlinux-project"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"

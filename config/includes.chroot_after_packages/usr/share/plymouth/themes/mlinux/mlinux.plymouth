@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=MLinux More splash theme
+Description=MLinux More splash theme.
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/mlinux
+ScriptFile=/usr/share/plymouth/themes/mlinux/mlinux.script

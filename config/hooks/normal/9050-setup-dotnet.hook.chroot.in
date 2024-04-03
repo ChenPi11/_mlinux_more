@@ -10,3 +10,6 @@ rm packages-microsoft-prod.deb
 
 apt-get update
 apt-get install -y dotnet-sdk-8.0
+wget @GITHUB@/PowerShell/PowerShell/releases/download/v7.4.1/powershell_7.4.1-1.deb_amd64.deb -O powershell.deb
+dpkg -i powershell.deb
+rm powershell.deb
