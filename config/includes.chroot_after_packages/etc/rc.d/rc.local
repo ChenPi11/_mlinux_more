@@ -1,0 +1,2 @@
+#!/bin/sh
+echo 'Hangzhou is a city.' >> /hz.txt

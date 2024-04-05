@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+apt-get update
+apt-get install -y powershell
+brew install oh-my-posh
+POSH_THEMES_PATH="$(brew --prefix oh-my-posh)/themes"
+export POSH_THEMES_PATH
+echo "export POSH_THEMES_PATH=$POSH_THEMES_PATH" >> /etc/environment
+#pwsh -c "Install-Module -Name oh-my-posh -Force -AcceptLicense -Verbose"
+#pwsh -c "Install-Module -Name posh-git -Force -AcceptLicense -Verbose"
+#pwsh -c "Install-Module -Name Terminal-Icons -Force -AcceptLicense -Verbose"

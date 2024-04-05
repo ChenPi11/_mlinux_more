@@ -1,4 +1,0 @@
-#!/bin/sh
-
-echo 进入TEMPSHELL
-bash

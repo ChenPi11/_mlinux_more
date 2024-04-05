@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -e
+
+echo -e "This file let linuxbrew believe we can install packages with root. Don't remove.\n" > /.dockerenv
+echo -e "\n" | bash -c "$(curl -fsSL @GITHUB@/Homebrew/install/raw/HEAD/install.sh)"

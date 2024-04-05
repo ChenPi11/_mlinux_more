@@ -22,6 +22,7 @@ aclocal.m4 : configure.ac
 
 configure : configure.ac aclocal.m4
 	$(AUTOCONF) && $(RM) -r -f autom4te.cache
+	echo "chmod +x config/hooks/normal/9045-setup-brew.hook.chroot" >> configure
 
 check-configures : configure
 	set -e; for f in $^; do bash -x -n $$f; done
