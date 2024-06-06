@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+bash -c "$(curl --show-error --location @GITHUB@/zdharma-continuum/zinit/raw/HEAD/scripts/install.sh)" < /dev/null
+
+zsh /build-res/config-zsh.zsh
+cat /build-res/zshrc-snippet.zsh >> $HOME/.zshrc

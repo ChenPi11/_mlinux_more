@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+apt-get update
+apt-get install -y powershell
+pwsh -c "Install-Module -Name oh-my-posh -Force -AcceptLicense -Verbose"
+pwsh -c "Install-Module -Name posh-git -Force -AcceptLicense -Verbose"
+pwsh -c "Install-Module -Name Terminal-Icons -Force -AcceptLicense -Verbose"
+curl -s https://ohmyposh.dev/install.sh | bash -s
+mkdir -p "$HOME/.config/powershell"
+cp /build-res/Microsoft.PowerShell_profile.ps1 "$HOME/.config/powershell/Microsoft.PowerShell_profile.ps1"

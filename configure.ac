@@ -32,6 +32,6 @@ AC_ARG_WITH([github-mirror],
 AC_SUBST([GITHUB])
 
 AC_CONFIG_FILES([Makefile])
-AC_CONFIG_FILES([config/hooks/normal/9045-setup-brew.hook.chroot])
+AC_CONFIG_FILES([config/hooks/normal/5046-setup-zsh.hook.chroot], [chmod +x config/hooks/normal/5046-setup-zsh.hook.chroot])
 
 AC_OUTPUT
