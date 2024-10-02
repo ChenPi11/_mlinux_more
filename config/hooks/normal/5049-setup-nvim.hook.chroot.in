@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+# shellcheck disable=SC2050
+if [ "@HTTP_PROXY@" != "" ]; then
+    export http_proxy=@HTTP_PROXY@
+    export https_proxy=@HTTP_PROXY@
+fi
+
+expect /build-res/run-nvim.exp

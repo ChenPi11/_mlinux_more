@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+curl -sL https://deb.nodesource.com/setup_22.x | bash -
+apt install nodejs
+npm config set registry @NPM_MIRROR@
+npm install -g cnpm nrm yarn
+npm config set registry https://registry.npmjs.org/  # Reset to default.

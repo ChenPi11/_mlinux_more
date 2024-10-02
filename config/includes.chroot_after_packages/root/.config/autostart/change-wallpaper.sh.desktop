@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=/usr/libexec/mlinux/change-wallpaper.sh
+Icon=dialog-scripts
+Name=change-wallpaper.sh
+Type=Application
+X-KDE-AutostartScript=true

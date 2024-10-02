@@ -21,17 +21,33 @@ AC_PROG_MAKE_SET
 AC_PATH_PROG([LIVE_BUILD], [lb])
 AC_PATH_PROG([SUDO], [sudo])
 
-dnl gl_am_configmake=`grep -aErls "#{4}[[:alnum:]]{5}#{4}$" $srcdir/ 2>/dev/null`
-
-AC_ARG_WITH([github-mirror],
-    [AS_HELP_STRING([--with-github-mirror=XXX],
-        [define the mirror site of GitHub])],
-    [GITHUB=$withval],
-    [GITHUB=https://github.com]
+AC_ARG_WITH([npm-registry],
+    [AS_HELP_STRING([--with-npm-registry=XXX],
+        [define the mirror site of Npm registry])],
+    [NPM_MIRROR=$withval],
+    [NPM_MIRROR=https://registry.npm.org]
 )
-AC_SUBST([GITHUB])
+AC_SUBST([NPM_MIRROR])
+
+AC_ARG_ENABLE([debug-console],
+  [AS_HELP_STRING([--enable-debug-console],
+                  [enable debug console before running chroot hooks])],
+  [DEBUG_CONSOLE=yes],
+  [DEBUG_CONSOLE=no])
+AC_SUBST([DEBUG_CONSOLE])
+
+AC_ARG_WITH([http-proxy],
+    [AS_HELP_STRING([--with-http-proxy=protocol://host:port],
+        [define the http proxy for running chroot hooks])],
+    [HTTP_PROXY=$withval],
+    [HTTP_PROXY=]
+)
+AC_SUBST([HTTP_PROXY])
 
 AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([config/hooks/normal/5039-dbg-console.hook.chroot], [chmod +x config/hooks/normal/5039-dbg-console.hook.chroot])
+AC_CONFIG_FILES([config/hooks/normal/5045-setup-nodejs.hook.chroot], [chmod +x config/hooks/normal/5045-setup-nodejs.hook.chroot])
 AC_CONFIG_FILES([config/hooks/normal/5046-setup-zsh.hook.chroot], [chmod +x config/hooks/normal/5046-setup-zsh.hook.chroot])
-
+AC_CONFIG_FILES([config/hooks/normal/5049-setup-nvim.hook.chroot], [chmod +x config/hooks/normal/5049-setup-nvim.hook.chroot])
+AC_CONFIG_FILES([config/hooks/normal/5060-setup-fastgithub.hook.chroot], [chmod +x config/hooks/normal/5060-setup-fastgithub.hook.chroot])
 AC_OUTPUT

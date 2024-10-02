@@ -1,8 +1,13 @@
+hub
+command-not-found
+gh
+ack
 bat
 bc
 bison
 curl
 dpkg-dev
+expect
 eza
 fakeroot
 flex

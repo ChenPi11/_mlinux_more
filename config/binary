@@ -10,13 +10,13 @@ LB_BINARY_FILESYSTEM="fat32"
 LB_APT_INDICES="true"
 
 # Set boot parameters
-LB_BOOTAPPEND_LIVE="boot=live components quiet splash username=mlinux hostname=mlinux"
+LB_BOOTAPPEND_LIVE="boot=live components quiet splash username=root hostname=mlinux"
 
 # Set boot parameters
 LB_BOOTAPPEND_INSTALL=""
 
 # Set boot parameters
-LB_BOOTAPPEND_LIVE_FAILSAFE="boot=live components memtest noapic noapm nodma nomce nolapic nosmp nosplash vga=788 username=mlinux hostname=mlinux"
+LB_BOOTAPPEND_LIVE_FAILSAFE="boot=live components memtest noapic noapm nodma nomce nolapic nosmp nosplash vga=788 username=root hostname=mlinux"
 
 # Set BIOS bootloader
 LB_BOOTLOADER_BIOS="syslinux"
@@ -116,4 +116,4 @@ LB_SWAP_FILE_PATH=""
 LB_SWAP_FILE_SIZE="512"
 
 # Enable/disable UEFI secure boot support
-LB_UEFI_SECURE_BOOT="disable"
+LB_UEFI_SECURE_BOOT="enable"

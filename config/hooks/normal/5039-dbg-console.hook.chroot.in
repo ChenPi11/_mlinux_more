@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# shellcheck disable=SC2050
+if [ "@HTTP_PROXY@" != "" ]; then
+    export http_proxy=@HTTP_PROXY@
+    export https_proxy=@HTTP_PROXY@
+fi
+
+# shellcheck disable=SC2050
+if [ "@DEBUG_CONSOLE@" = "yes" ]; then
+    echo "Debug console enabled"
+    bash
+fi
+
+rm -f ~/.bash_history

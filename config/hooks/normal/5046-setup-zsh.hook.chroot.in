@@ -1,8 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
-bash -c "$(curl --show-error --location @GITHUB@/zdharma-continuum/zinit/raw/HEAD/scripts/install.sh)" < /dev/null
+# shellcheck disable=SC2050
+if [ "@HTTP_PROXY@" != "" ]; then
+    export http_proxy=@HTTP_PROXY@
+    export https_proxy=@HTTP_PROXY@
+fi
 
-zsh /build-res/config-zsh.zsh
-cat /build-res/zshrc-snippet.zsh >> $HOME/.zshrc
+yes | bash -c "$(curl --fail --show-error --silent --location https://github.com/zdharma-continuum/zinit/raw/HEAD/scripts/install.sh)"
+
+cat /build-res/zshrc-snippet.zsh >> "$HOME/.zshrc"
+cp /build-res/.p10k.zsh "$HOME/.p10k.zsh"
+cat /build-res/p10k-zshrc-prefix.zsh "$HOME/.zshrc" > "$HOME/.zshrc.tmp"
+mv "$HOME/.zshrc.tmp" "$HOME/.zshrc"
+expect /build-res/run-zsh.exp

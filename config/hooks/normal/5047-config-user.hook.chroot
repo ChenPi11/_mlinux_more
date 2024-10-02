@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -e
+
+printf "mlinux\nmlinux\n" | passwd root
+chsh -s /usr/bin/zsh root

@@ -24,3 +24,7 @@ autom4te.cache
 config.status
 config.log
 configure~
+*.tmp
+config/hooks/normal/5039-dbg-console.hook.chroot
+config/hooks/normal/5045-setup-nodejs.hook.chroot
+config/hooks/normal/5049-setup-nvim.hook.chroot

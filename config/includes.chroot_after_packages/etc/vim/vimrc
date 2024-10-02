@@ -1,0 +1,21 @@
+colorscheme desert
+hi Normal guibg=#C0DCC0 ctermbg=darkgreen guifg=#444444 ctermfg=darkgray
+set t_Co=256
+syntax on
+set number
+set cursorline
+hi CursorLine guibg=#333333 ctermbg=darkgray
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoindent
+set smartindent
+set history=1000
+set hlsearch
+set ignorecase
+set smartcase
+set showmatch
+set mouse=a
+set foldmethod=syntax
+set foldenable
+set foldcolumn=2
