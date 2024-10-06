@@ -18,7 +18,8 @@ live-image-amd64.packages
 chroot.installed_tmp_pkgs
 config/hooks/normal/*-setup-zsh.hook.chroot
 configure
-Makefile
+config/includes.chroot_after_packages/opt/LocaleSelector
+/Makefile
 aclocal.m4
 autom4te.cache
 config.status
@@ -28,3 +29,6 @@ configure~
 config/hooks/normal/5039-dbg-console.hook.chroot
 config/hooks/normal/5045-setup-nodejs.hook.chroot
 config/hooks/normal/5049-setup-nvim.hook.chroot
+config/hooks/normal/5035-setup-fastgithub.hook.chroot
+*.sln
+config/hooks/normal/7999-post-dbg-console.hook.chroot

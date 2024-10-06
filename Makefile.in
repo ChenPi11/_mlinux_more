@@ -2,6 +2,7 @@
 
 LIVE_BUILD = @LIVE_BUILD@
 SUDO = @SUDO@
+RM = rm
 
 DEBIAN_CHECKER = check-debian.sh
 
@@ -9,16 +10,27 @@ ifneq (,)
 This makefile requires GNU Make.
 endif
 
+.PHONY : all clean configure build check-debian
+
 all : check-debian build
+
+LOCALE_SELECTOR = config/includes.chroot_after_packages/opt/LocaleSelector/
+
+$(LOCALE_SELECTOR)/LocaleSelector : configure
+	mkdir -p $(LOCALE_SELECTOR)
+	cd LocaleSelector && $(MAKE) install
 
 check-debian : $(DEBIAN_CHECKER)
 	./$^
 
 clean : check-debian
 	$(SUDO) $(LIVE_BUILD) clean
+	cd LocaleSelector && $(MAKE) clean
+	$(RM) -r -f $(LOCALE_SELECTOR)
+	$(RM) -f more.sln
 
 configure : check-debian config
 	$(LIVE_BUILD) config
 
-build : check-debian clean configure
+build : check-debian clean configure $(LOCALE_SELECTOR)/LocaleSelector
 	$(SUDO) $(LIVE_BUILD) build

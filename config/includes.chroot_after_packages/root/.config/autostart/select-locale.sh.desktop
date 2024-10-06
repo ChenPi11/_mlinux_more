@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=/opt/LocaleSelector/select-locale.sh
+Icon=dialog-scripts
+Name=select-locale.sh
+Type=Application
+X-KDE-AutostartScript=true

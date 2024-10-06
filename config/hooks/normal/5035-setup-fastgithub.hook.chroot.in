@@ -1,0 +1,70 @@
+#!/bin/sh
+
+set -e
+
+# shellcheck disable=SC2050
+if [ "@HTTP_PROXY@" != "" ]; then
+    export http_proxy=@HTTP_PROXY@
+    export https_proxy=@HTTP_PROXY@
+fi
+
+mkdir -p /opt
+cd /tmp
+wget --no-check-certificate https://github.com/zxcvbnm3057/FastGithub/releases/download/2.1.5/fastgithub_linux-x64.zip
+unzip fastgithub_linux-x64.zip
+mv fastgithub_linux-x64 /opt/fastgithub
+chmod +x /opt/fastgithub/fastgithub
+chmod +x /opt/fastgithub/dnscrypt-proxy/dnscrypt-proxy
+
+cp /build-res/fastgithub-settings.json /opt/fastgithub/appsettings.json
+
+cat > /tmp/fastgithub-certgen.exp << EOF
+spawn /opt/fastgithub/fastgithub 2> /dev/null
+expect {
+    "访问 https://github.com/dotnetcore/fastgithub 关注新版本" {
+        send \003
+    }
+    "已经被其它进程占用，请在配置文件更换" {
+        send \003
+    }
+}
+send \003
+EOF
+
+expect /tmp/fastgithub-certgen.exp
+
+cat > /usr/lib/systemd/system/fastgithub.service << EOF
+[Service]
+Type=forking
+ExecStart=/opt/fastgithub/fastgithub
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+cp /opt/fastgithub/cacert/fastgithub.crt /usr/share/ca-certificates
+cp /opt/fastgithub/cacert/fastgithub.crt /etc/ssl/certs
+update-ca-certificates
+
+systemctl daemon-reload
+systemctl enable fastgithub
+
+touch /etc/environment.d/99-fastgithub
+echo "http_proxy=http://127.0.0.1:38458" >> /etc/environment.d/99-fastgithub
+echo "https_proxy=http://127.0.0.1:38458" >> /etc/environment.d/99-fastgithub
+
+touch /etc/profile.d/fastgithub.sh
+cat > /etc/profile.d/fastgithub.sh << EOF
+fastgithubon() {
+    export http_proxy=http://127.0.0.1:38458
+    export https_proxy=http://127.0.0.1:38458
+}
+
+fastgithuboff() {
+    unset http_proxy
+    unset https_proxy
+}
+
+alias fgon=fastgithubon
+alias fgoff=fastgithuboff
+EOF

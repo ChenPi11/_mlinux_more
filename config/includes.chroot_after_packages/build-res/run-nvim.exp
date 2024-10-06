@@ -1,13 +1,9 @@
 #!/usr/bin/expect
 
-set timeout 10
+set timeout 60
 
 # Install lazy-nvim
 spawn nvim
-send ":q\n"
+send ":quitall\n"
 interact
 
-# Install mason
-spawn nvim
-send ":q\n"
-interact

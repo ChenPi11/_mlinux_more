@@ -45,9 +45,10 @@ AC_ARG_WITH([http-proxy],
 AC_SUBST([HTTP_PROXY])
 
 AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([config/hooks/normal/5035-setup-fastgithub.hook.chroot], [chmod +x config/hooks/normal/5035-setup-fastgithub.hook.chroot])
 AC_CONFIG_FILES([config/hooks/normal/5039-dbg-console.hook.chroot], [chmod +x config/hooks/normal/5039-dbg-console.hook.chroot])
 AC_CONFIG_FILES([config/hooks/normal/5045-setup-nodejs.hook.chroot], [chmod +x config/hooks/normal/5045-setup-nodejs.hook.chroot])
 AC_CONFIG_FILES([config/hooks/normal/5046-setup-zsh.hook.chroot], [chmod +x config/hooks/normal/5046-setup-zsh.hook.chroot])
 AC_CONFIG_FILES([config/hooks/normal/5049-setup-nvim.hook.chroot], [chmod +x config/hooks/normal/5049-setup-nvim.hook.chroot])
-AC_CONFIG_FILES([config/hooks/normal/5060-setup-fastgithub.hook.chroot], [chmod +x config/hooks/normal/5060-setup-fastgithub.hook.chroot])
+AC_CONFIG_FILES([config/hooks/normal/7999-post-dbg-console.hook.chroot], [chmod +x config/hooks/normal/7999-post-dbg-console.hook.chroot])
 AC_OUTPUT

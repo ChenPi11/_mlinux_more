@@ -4,3 +4,6 @@ set -e
 
 printf "mlinux\nmlinux\n" | passwd root
 chsh -s /usr/bin/zsh root
+touch ~/.bashrc
+sed -i '1 i source /etc/profile' ~/.bashrc
+sed -i '1 i source /etc/profile' ~/.zshrc

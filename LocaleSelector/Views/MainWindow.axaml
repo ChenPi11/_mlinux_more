@@ -1,0 +1,53 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:LocaleSelector.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="LocaleSelector.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Width="700"
+        Height="500"
+        Icon="/Assets/mlinux-more.ico"
+        WindowStartupLocation="CenterScreen"
+        Title="MLinux More"
+        CanResize="False"
+        RequestedThemeVariant="Default">
+
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainWindowViewModel/>
+  </Design.DataContext>
+
+  <StackPanel
+      Margin="20"
+      HorizontalAlignment="Center">
+    <Label Margin="0 5"
+           HorizontalAlignment="Center"
+           x:Name="HintLabel"
+           Content="Choose your display language" />
+    <TextBox  x:Name="SearchBox"
+      Watermark="Search"
+              Width="600"
+              Height="25"
+              PropertyChanged="SearchBoxPropertyChanged" />
+    <ListBox
+        x:Name="LocalesListBox"
+        HorizontalAlignment="Center"
+        Height="345"
+        Width="600" />
+    <Button
+      x:Name="CloseButton"
+      Content="OK"
+      Click="OnOK"
+      HorizontalAlignment="Right"
+      VerticalAlignment="Bottom"
+      Margin="0 10"
+      VerticalContentAlignment="Center"
+      HorizontalContentAlignment="Center"
+      Height="40"
+      Width="80"/>
+  </StackPanel>
+
+</Window>
