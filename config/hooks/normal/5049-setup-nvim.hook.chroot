@@ -3,9 +3,9 @@
 set -e
 
 # shellcheck disable=SC2050
-if [ "" != "" ]; then
-    export http_proxy=
-    export https_proxy=
+if [ "http://127.0.0.1:38457" != "" ]; then
+    export http_proxy=http://127.0.0.1:38457
+    export https_proxy=http://127.0.0.1:38457
 fi
 
 expect /build-res/run-nvim.exp

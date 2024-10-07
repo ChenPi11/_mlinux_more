@@ -29,6 +29,14 @@ AC_ARG_WITH([npm-registry],
 )
 AC_SUBST([NPM_MIRROR])
 
+AC_ARG_WITH([apt-source],
+    [AS_HELP_STRING([--with-apt-source=XXX],
+        [define the APT source])],
+    [APT_SOURCE=$withval],
+    [APT_SOURCE=https://deb.debian.org/debian]
+)
+AC_SUBST([APT_SOURCE])
+
 AC_ARG_ENABLE([debug-console],
   [AS_HELP_STRING([--enable-debug-console],
                   [enable debug console before running chroot hooks])],
@@ -45,6 +53,7 @@ AC_ARG_WITH([http-proxy],
 AC_SUBST([HTTP_PROXY])
 
 AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([config/bootstrap])
 AC_CONFIG_FILES([config/hooks/normal/5035-setup-fastgithub.hook.chroot], [chmod +x config/hooks/normal/5035-setup-fastgithub.hook.chroot])
 AC_CONFIG_FILES([config/hooks/normal/5039-dbg-console.hook.chroot], [chmod +x config/hooks/normal/5039-dbg-console.hook.chroot])
 AC_CONFIG_FILES([config/hooks/normal/5045-setup-nodejs.hook.chroot], [chmod +x config/hooks/normal/5045-setup-nodejs.hook.chroot])

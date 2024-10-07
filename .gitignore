@@ -32,3 +32,4 @@ config/hooks/normal/5049-setup-nvim.hook.chroot
 config/hooks/normal/5035-setup-fastgithub.hook.chroot
 *.sln
 config/hooks/normal/7999-post-dbg-console.hook.chroot
+config/bootstrap
